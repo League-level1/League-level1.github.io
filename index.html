@@ -65,7 +65,7 @@
       function listMajors() {
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1REN8XXjnovALoQdJ2eSueFbi7T_DxnS1sGn8qF3jUNE',
-          range: 'Class Data!A2:E',
+          range: 'Class Data!A2:N',
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {
@@ -81,7 +81,7 @@
               if(row[3] == "Wendy")
               {
                 apprendPre(row[0]);
-                for(j = 1; j < 8; j++) {
+                for(j = 1; j < 6; j++) {
                   appendPre(", " + row[i]);
                 }
               }

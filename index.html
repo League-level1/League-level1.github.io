@@ -69,11 +69,18 @@
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {
-            appendPre('Data:');
-            for (i = 0; i < range.values.length; i++) {
-              var row = range.values[i];
-              // Print columns A and E, which correspond to indices 0 and 4.
-              appendPre(row[0] + ', ' + row[1] + ", " + row[2] + ", " + row[3] + ", " + row[4]);
+            // appendPre('Data:');
+            // for (i = 0; i < range.values.length; i++) {
+            //   var row = range.values[i];
+            //   // Print columns A and E, which correspond to indices 0 and 4.
+            //   appendPre(row[0] + ', ' + row[1] + ", " + row[2] + ", " + row[3] + ", " + row[4]);
+            // }
+            for(int i = 0; i < range.values.length; i++)
+            {
+              if(row[0] == "Dorothy")
+              {
+                appendPre(row[0] + ', ' + row[1] + ", " + row[2] + ", " + row[3] + ", " + row[4]);
+              }
             }
           } else {
             appendPre('No data found.');

@@ -80,10 +80,10 @@
             {
               var row = range.values[i];
               if(name != null) {
-                if(row[3] == name)
+                if(row[7] == name || row[8] == name || row[9] == name || row[10] == name || row[11] == name || row[12] == name || row[13] == name || row[14] == name || row[15] == name || row[16] == name)
                 {
                   appendPre("https://docs.google.com/forms/d/" + row[0]);
-                  for(j = 1; j < 6; j++) {
+                  for(j = 1; j < 16; j++) {
                     appendPre(", " + row[j]);
                   }
                 }

@@ -82,7 +82,8 @@
               if(name != null) {
                 if(row[3] == name)
                 {
-                  appendPre(str.link("https://docs.google.com/forms/d/" + row[0]));
+                  var form = "https://docs.google.com/forms/d/ + row[0]";
+                  appendPre(form.link("https://docs.google.com/forms/d/" + row[0]));
                   for(j = 1; j < 6; j++) {
                     appendPre(", " + row[j]);
                   }

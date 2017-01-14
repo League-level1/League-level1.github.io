@@ -67,6 +67,7 @@
           spreadsheetId: '1REN8XXjnovALoQdJ2eSueFbi7T_DxnS1sGn8qF3jUNE',
           range: 'Sheet1!A2:N',
         }).then(function(response) {
+          var name = window.prompt("Please enter your name.","defaultText");
           var range = response.result;
           if (range.values.length > 0) {
              appendPre('Data:');
@@ -78,11 +79,13 @@
             for(i = 0; i < range.values.length; i++)
             {
               var row = range.values[i];
-              if(row[3] == "Wendy")
-              {
-                appendPre(row[0]);
-                for(j = 1; j < 6; j++) {
-                  appendPre(", " + row[j]);
+              if(name != null) {
+                if(row[3] == name)
+                {
+                  appendPre(row[0]);
+                  for(j = 1; j < 6; j++) {
+                    appendPre(", " + row[j]);
+                  }
                 }
               }
             }

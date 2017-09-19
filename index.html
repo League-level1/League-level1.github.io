@@ -1,120 +1,33 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <script type="text/javascript">
-      // Your Client ID can be retrieved from your project in the Google
-      // Developer Console, https://console.developers.google.com
-      var CLIENT_ID = '856079477450-gdo5q9nnj5srqeuddb6tgit0v0gjj0r9.apps.googleusercontent.com';
-
-      var SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
-
-      /**
-       * Check if current user has authorized this application.
-       */
-      function checkAuth() {
-        gapi.auth.authorize(
-          {
-            'client_id': CLIENT_ID,
-            'scope': SCOPES.join(' '),
-            'immediate': true
-          }, handleAuthResult);
-      }
-
-      /**
-       * Handle response from authorization server.
-       *
-       * @param {Object} authResult Authorization result.
-       */
-      function handleAuthResult(authResult) {
-        var authorizeDiv = document.getElementById('authorize-div');
-        if (authResult && !authResult.error) {
-          // Hide auth UI, then load client library.
-          authorizeDiv.style.display = 'none';
-          loadSheetsApi();
-        } else {
-          // Show auth UI, allowing the user to initiate authorization by
-          // clicking authorize button.
-          authorizeDiv.style.display = 'inline';
-        }
-      }
-
-      /**
-       * Initiate auth flow in response to user clicking authorize button.
-       *
-       * @param {Event} event Button click event.
-       */
-      function handleAuthClick(event) {
-        gapi.auth.authorize(
-          {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
-          handleAuthResult);
-        return false;
-      }
-
-      /**
-       * Load Sheets API client library.
-       */
-      function loadSheetsApi() {
-        var discoveryUrl =
-            'https://sheets.googleapis.com/$discovery/rest?version=v4';
-        gapi.client.load(discoveryUrl).then(listMajors);
-      }
-
-      /**
-       * Print the names and majors of students in a sample spreadsheet:
-       * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-       */
-      function listMajors() {
-        gapi.client.sheets.spreadsheets.values.get({
-          spreadsheetId: '1REN8XXjnovALoQdJ2eSueFbi7T_DxnS1sGn8qF3jUNE',
-          range: 'Sheet1!A2:N',
-        }).then(function(response) {
-          var name = window.prompt("Please enter your name.","defaultText");
-          var range = response.result;
-          if (range.values.length > 0) {
-             appendPre('Data:');
-            // for (i = 0; i < range.values.length; i++) {
-            //   var row = range.values[i];
-            //   // Print columns A and E, which correspond to indices 0 and 4.
-            //   appendPre(row[0] + ', ' + row[1] + ", " + row[2] + ", " + row[3] + ", " + row[4]);
-            // }
-            for(i = 0; i < range.values.length; i++)
-            {
-              var row = range.values[i];
-              if(name != null) {
-                if(row[7] == name || row[8] == name || row[9] == name || row[10] == name || row[11] == name || row[12] == name || row[13] == name || row[14] == name || row[15] == name || row[16] == name)
-                {
-                  appendPre("https://docs.google.com/forms/d/" + row[0]);
-                  for(j = 1; j < 16; j++) {
-                    appendPre(", " + row[j]);
-                  }
-                }
-              }
-            }
-          } else {
-            appendPre('No data found.');
-          }
-        }, function(response) {
-          appendPre('Error: ' + response.result.error.message);
-        });
-      }
-
-      /**
-       * Append a pre element to the body containing the given message
-       * as its text node.
-       *
-       * @param {string} message Text to be placed in pre element.
-       */
-      function appendPre(message) {
-        var pre = document.getElementById('output');
-        var textContent = document.createTextNode(message + '\n');
-        pre.appendChild(textContent);
-      }
-
-
-    </script>
-    <script src="https://apis.google.com/js/client.js?onload=checkAuth">
-    </script>
-  </head>
+<title>Level 0</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+</style>
+  
+  
   <body>
+    
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+
+    <h1 class="w3-jumbo w3-animate-top">Level 1   </h1>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+  </div>
+  
+   <div class="w3-display-middle">
+   <h2><a href="https://docs.google.com/document/d/1802ghccths-ARRlzx6CQUyYs9cv6Z7ATufBH8I3SuDg/view">UCSD Extension Overview</a></h2><br>
+<!--  
     <div id="authorize-div" style="display: none">
       <span>Authorize access to Google Sheets API</span>
       <!--Button for the user to click to initiate auth sequence -->
@@ -123,7 +36,16 @@
       </button>
     </div>
     <pre id="output"></pre>
-    <a href = "https://github.com/League-level1/League-level1.github.io/blob/master/ComprehensiveLevel1StudyGuide.docx?raw=true">Click here for the level 1 study guide.</a><br>
+  -->
+  
+    <a href = "https://github.com/League-level1/League-level1.github.io/blob/master/ComprehensiveLevel1StudyGuide.docx?raw=true">Level 0 Study Guide</a><br>
     <a href="https://league-level1.github.io/Practice_Test_1">Online Practice Test #1</a>
+ <hr class="w3-border-grey" style="margin:auto;width:40%">
+
+  </div>
+  <div class="w3-display-bottomleft w3-padding-large">
+    <a href="https://league-level0.github.io/"><img src="league.jpg" alt="league-logo"></a>
+  </div>
+</div>
   </body>
 </html>

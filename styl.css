@@ -1,35 +1,52 @@
-div.container {
-    width: 100%;
-    border: 1px solid gray;
+body {
+    background-color: white;
 }
 
-header, footer {
-    padding: 1em;
-    color: white;
-    background-color: black;
-    clear: left;
+h1 {
+    color: #fa591a;
+
     text-align: center;
+    font-family: verdana;
+    font-size: 64px;
+}
+h2 {
+
+    text-align: center;
+
 }
 
-nav {
-    float: left;
-    max-width: 160px;
-    margin: 0;
-    padding: 1em;
-}
 
-nav ul {
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+img {
+    display: block;
+    margin: right;
+    width: 20%;
+    height: 20%;
+}
+ul {
     list-style-type: none;
+    margin: 0;
     padding: 0;
+    overflow: hidden;
+    background-color: #333;
 }
-   
-nav ul a {
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
 }
 
-article {
-    margin-left: 170px;
-    border-left: 1px solid gray;
-    padding: 1em;
-    overflow: hidden;
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
 }

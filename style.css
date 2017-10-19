@@ -4,28 +4,63 @@ body {
 
 h1 {
     color: #fa591a;
-
     text-align: center;
     font-family: verdana;
-    font-size: 64px;
+    font-size: 48px;
 }
+
 h2 {
-
+    font-family: verdana;
+    color: #fa591a;
+    font-size: 32px;
     text-align: center;
-
 }
 
+h3 {
+    font-size: 24px;
+    text-align: center;
+}
 
 p {
     font-family: verdana;
     font-size: 20px;
 }
+
+p.normal {
+    font-family: verdana;
+    font-size: 16px;
+}
+
+p.code {
+    color: #1E9806;
+    font-family: Courier;
+    font-size: 16px;
+    padding-left: 50px;
+
+}
+
+p.copyright {
+    font-family: Arial;
+    font-size: 12px;
+}
+
 img {
     display: block;
     margin: right;
     width: 20%;
     height: 20%;
 }
+
+img.middle {
+    vertical-align:
+}
+        
+img.footer {
+    max-height: 75px;
+    width: auto;
+    display:inline-block;
+}
+        
 ul {
     list-style-type: none;
     margin: 0;

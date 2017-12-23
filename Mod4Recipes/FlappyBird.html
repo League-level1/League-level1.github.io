@@ -16,44 +16,45 @@
 
 1. Start a new sketch with <b>draw</b> and <b>setup</b> methods.<br>
 <br>
-2. Set your canvas size and background color in the setup method</p>
+2. Set your canvas size in the setup method</p>
     <p class="code">
     size(width, height)<br>
-    background(red, green, blue)</p>
+</p>
 
 <p class="normal">
-3. In your draw method, draw a ball (bird) on the screen.
+3. In your draw method, set a background, and draw a ball (bird) on the screen.
 </p>
    <p class="code">
+    background(red, green, blue)
 	fill(red, green, blue);<br>
 	stroke(red, green, blue);<br>
 	ellipse(x, y, width, height);<br>
-</p>    
+</p>  
     
     
 <p class="normal">
 4. Make the bird fall down<br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Hint:</u> make variables for the bird's X and Y position and use them in the draw method.
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Hint:</u> make variables for the bird's X and Y position and use them for the ellipse in the draw method.
 </p>
 
 
 <p class="normal">
 5. Add velocity to the bird. <br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Hint:</u> make a variable for the velocity of the bird in the Y direction (up). Changing its value should change the velocity of your bird.</p>
-    <p class="code">double birdYVelocity = 0;</p>
+    <p class="code">int birdYVelocity = 30;</p>
     
 
 <p class="normal">
 6.  Give the bird gravity.<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Hint:</u> make a variable for the gravity pushing the bird down (in the Y direction). Gravity should continually increase the value of y . 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Hint:</u> make a variable for the gravity pulling the bird down. Gravity should continually increase the value of y . 
 </p>
-    <p class="code">double gravity = 0.5;</p>
+    <p class="code">int gravity = 1;</p>
 
 
 <p class="normal">
-7. Make the bird jump/flap when the mouse is clicked.<br>
+7. Make the bird jump (flap) when the mouse is clicked.<br>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Hint:</u> construct a mousePressed() method the same way setup() and draw() were made. <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change the bird’s velocity (see above) to make the bird rise.
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In this method, apply the bird’s velocity to its y position to make the bird rise.
     </p>
     
 <p class="normal">
@@ -73,7 +74,8 @@
     </p>
     
 <p class="normal">
-10. Make the pipe teleport back to the right side of the screen once it has passed through the left. This will simulate the repeating pipes coming from the right of the screen.
+10. Make the pipe teleport back to the right side of the screen once it has passed through the left. This will simulate the repeating pipes coming from the right of the screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Tip:</u> Put this code into a teleportPipes() method and you can also call it from the setup() method to create the first pipes.
     </p>
     
 <p class="normal">    
@@ -83,20 +85,9 @@
     int upperPipeHeight = (int) random(100, 400);
     </p> 
     
+
 <p class="normal">
-12. Make the game end when the bird hits the pipe. Figure it out by yourself, or use this method:
-</p>
-         <p class="code"> 
-        boolean intersects(int birdX, int birdY, int paddleX, int paddleY, int paddleLength) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (birdY &gt; paddleY-4 && birdX &gt; paddleX && birdX &lt; paddleX + paddleLength)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>
-}<br>        
-    </p>
-    
-<p class="normal">
-13. Make a second pipe that does down to the bottom of the sketch
+12. Make a second pipe that does down to the bottom of the sketch
 <br>   In the draw() method: 
     <p class="code">
     fill(red, green, blue);<br>
@@ -104,18 +95,31 @@
     </p>
     
  <p class="normal">
-14. Repeat steps 9-11 for this pipe.</p>
+13. Repeat steps 9 &amp; 10 for this pipe.</p>
     
   <p class="normal">
-15. Create a gap between the pipes.<br>
+14. Create a gap between the pipes.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The x values of both pipes will be the same.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Make sure the gap is big enough for the ball to go through.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the lower pipe y value by adding the upper pipe height and pipe gap to the upper pipe y value. Ex:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the lower pipe y value by adding the upper pipe height and pipe gap. Ex:<br>
          <p class="code">
     lowerY = upperY + upperPipeHeight + pipeGap;<br>
     </p>    
     
-  <p class="normal">
+  
+<p class="normal">
+15. Make the game end when the bird hits the pipe. Figure it out by yourself, or use this method:
+</p>
+         <p class="code"> 
+        boolean intersectsPipes() { <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (birdY &lt; upperPipeHeight && birdX &gt; pipeX && birdX &lt; (pipeX+pipeWidth)){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (birdY&gt;lowerPipeTop && birdX &gt; pipeX && birdX &lt; (pipeX+pipeWidth)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else { return false; }<br>
+             }
+    </p>      
+<p class="normal">    
 16. End the game when the bird hits the ground.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Make a rectangle for the ground.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use a boolean variable at the top of the sketch to indicate if game has ended.</p>
@@ -135,7 +139,7 @@
 	Minim minim;		<br>		
 	AudioSample sound;	<br>		
 	minim = new Minim (this);<br>		
-	sound = minim.loadSample("BD.mp3", 128);<br>
+	sound = minim.loadSample("flap.mp3", 128);<br>
 	sound.trigger();				</p>
     </div>
     <div style="float: left; width: 50%;"> 

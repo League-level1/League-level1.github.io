@@ -30,7 +30,7 @@
     <br>
      void playVideo(String videoID) {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URI uri = new URI("https://www.youtube.com/v/" + videoID + "?autoplay=1");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URI uri = new URI("https://youtu.be/" + videoID + "?autoplay=1");<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;java.awt.Desktop.getDesktop().browse(uri);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} catch (Exception e) {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace();<br>

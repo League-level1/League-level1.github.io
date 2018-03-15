@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<title>Level 1 - Jack-in-the-Box</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://league-level0.github.io/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<script src="https://league-level0.github.io/copyrightFooter.js"></script>
+<body>
+
+<h1>Jack-in-the-Box</h1>
+
+
+
+ <p class="normal">
+	1. Create a user interface that has a single button labeled "Surprise".<br>
+</p>
+ <p class="normal">
+	2. When the user presses the button 5 times, show them a jack-in-the-box using the methods below.<br>
+     (A sample jackInTheBox.png file is provided in the default package)<br>
+</p>
+
+<p class="code">
+    private void showPicture(String fileName) { <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try {<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JLabel imageLabel = createLabelImage(fileName);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JFrame frame = new JFrame();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frame.add(imageLabel);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frame.setVisible(true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frame.pack();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} catch (Exception e) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+</p>
+<p class="code">
+   private JLabel createLabelImage(String fileName) {<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try {<br>			
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL imageURL = getClass().getResource(fileName);<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (imageURL == null) {<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.err.println("Could not find image " + fileName);<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new JLabel();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Icon icon = new ImageIcon(imageURL);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JLabel imageLabel = new JLabel(icon);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return imageLabel;<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} catch (Exception e) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.err.println("Could not find image " + fileName);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new JLabel();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+    </p>
+
+	<p class="normal">
+  3. Also play a sound when the jack-in-the-box pops up using this method.<br>
+        (A sample sound homer-woohoo.wav is provided in the default package)<br>
+ 
+ <p class="code">
+    private void playSound(String soundFile) { <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioClip sound = JApplet.newAudioClip(getClass().getResource(soundFile));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sound.play();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} catch (Exception e) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+</p>
+    
+    
+
+
+<br><br><br><br><br><br><br><br><br>
+<div id="copyright">
+<script>copyright();</script>
+</div>
+	
+</body>
+</html>

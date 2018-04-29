@@ -22,20 +22,20 @@
     </p> 
 <p class="code">
  void showDucks() {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;playVideo("Drirjl5K9Yk");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;playVideo("https://www.youtube.com/watch?v=MtN1YnoL46Q");<br>
 }<br>
     <br>
   void showFrog() {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;playVideo("Drirjl5K9Yk");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;playVideo("https://www.youtube.com/watch?v=cBkWhkAZ9ds");<br>
 }<br>
     <br>
      void showFluffyUnicorns() {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;playVideo("Drirjl5K9Yk");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;playVideo("https://www.youtube.com/watch?v=a-xWhG4UU_Y");<br>
 }<br>
     <br>
      void playVideo(String videoID) {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URI uri = new URI("https://www.youtube.com/v/" + videoID + "?autoplay=1");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URI uri = new URI(videoID);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;java.awt.Desktop.getDesktop().browse(uri);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} catch (Exception e) {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace();<br>

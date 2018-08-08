@@ -25,14 +25,15 @@ Start with a new sketch that contains <b>setup()</b> and <b>draw()</b> methods. 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iii) Load it with code like this...<br>
 </p>
     <p class="code"> 
-		PImage pictureOfRecord;			  //as member variable<br>
-		pictureOfRecord= loadImage("record.jpg");	 //in setup method	<br>
-		image(pictureOfRecord, xPosition, yPosition);//in draw method<br>
+		PImage pictureOfRecord;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//as member variable<br>
+        size(600,600);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//in setup method	<br>		pictureOfRecord= loadImage("record.jpg");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//in setup method	<br>
+
+		image(pictureOfRecord, xPosition, yPosition);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//in draw method<br>
     </p>
 <p class="normal">    
-    2. Set the size of your canvas to match the size of your image.</p>
+    2. Set the size of your image to match the size of your canvas (after you have loaded it).</p>
     <p class="code">
-        size(pictureOfRecord.width, pictureOfRecord.height)	</p>
+                pictureOfRecord.resize(height,width);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//in setup method</p>
 <p class="normal">
 3. Use this method to rotate your image. Make sure you use the image() command after you call rotateImage().			
 </p>

@@ -3,15 +3,17 @@
 <title>Level 1 - Running Race</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://league-level0.github.io/style.css">
+<link rel="stylesheet" href="https://league-central.github.io/curriculum/style/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
-<script src="https://league-level0.github.io/copyrightFooter.js"></script>
-    
+<script src="https://league-central.github.io/curriculum/script/headerAndFooter.js"></script>
 <body>
+        <div id ="wrap">
+            <div id ="main">
+                <div id = "moduleIndex">   
 
 <h1>Running Race - Explaining Static</h1>
-
+<br>
 <p class="normal">
  
 Trying to understand static can be difficult ….<br>
@@ -25,18 +27,18 @@ Static variables belong to the class, which means that all instances of the clas
 <br>	
 Task:  	Create a class for athlete/marathon runners in a single race.<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Requirements:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sequential bib-numbers <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count the number of athletes<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the race location & start time<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Give out sequential bib-numbers (start at 1) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the race location &amp; start time<br>
     </p>
+                    <br>
 <p class="normal">    Copy the code below, then modify it so that each athlete gets a unique, sequential bib number.</p>
-    
+    <br>
     
     
    <p class="code"> 
     public class Athlete {<br>
     <br>
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static int count;<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static int nextBibNumber;<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static String raceLocation = "New York";<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static String raceStartTime = "9.00am";<br>
        <br>
@@ -55,18 +57,24 @@ Task:  	Create a class for athlete/marathon runners in a single race.<br><br>
     }<br>
 }
     </p>
- <p class="normal">      
+ <br>
+<p class="normal">      
 So the static variables belong to the class and the other variables belong to the instance.<br>
     <br>
-What happens to the variables when the 2 constructors run? How does count change, and when is bib number is assigned?<br>
+What happens to the variables when the 2 constructors run? How does nextBibNumber change, and when is the bib number assigned?<br>
      <br>
-How can you update the location? Is it updated for all the athletes?
+How can you change the location of the race? Is it updated for all the athletes?
 <br><br><br><br><br><br>
      
     </p>
     
-<div id="copyright">
-<script>copyright();</script>
+                </div>
+    </div>
+    </div>                
+                
+<div id="footer">
+<script>addFooter();</script>
 </div>
 
-</body></html>
+</body>
+</html>

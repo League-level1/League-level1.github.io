@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Processing Tips</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="icon" type="image/png" href="img/favicon.png">
+        <script src="script/headerAndFooter.js"></script>
+
+    </head>
+
+    <body>
+        <div id ="wrap">
+            <div id ="main">
+                <div id="header">
+                    <script>addRecipeHeader();</script>
+                </div>
+                <div id = "tipsPage">
+                    <div id="tipsTitle">
+                        <h1>Swing Recipe Class Structure</h1>
+                        <hr>
+                    </div>
+                    <div id ="tipsBody">
+                        <pre>
+public class Buttonz implements ActionListener{
+	//declare all JComponents
+	JFrame frame;
+	JPanel panel;
+	JButton button;
+
+	//call your createUI method
+	public static void main(String[] args){
+		new Buttonz().createUI();
+	}
+
+	void createUI(){
+	//initialize all Components
+	frame = new JFrame();
+	panel = new JPanel();
+	button = new JButton();
+
+	//add them all together
+	frame.add(panel);
+	panel.add(button);
+
+	//add any listeners
+	button.addActionListener(this);
+
+	//display 
+	frame.pack();
+	frame.setVisible(true);
+	}
+
+	public void actionPerformed(ActionEvent e){
+		if(e.getSource()== button){
+			System.out.println(“Time is passing, are you?”);
+		}
+ 	}
+
+
+}
+                        </pre>
+
+                        <div style="clear:both;"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <script>addRecipeFooter();</script>
+        </div>
+    </body>   
+</html>

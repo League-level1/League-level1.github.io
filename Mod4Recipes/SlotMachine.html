@@ -38,6 +38,22 @@ We are going to make a slot machine.
     <p class="normal">
     If all 3 reels have the same image showing (like in the picture above), the player wins. Display a "YOU WIN" message, optionally add a sound of success, and if you are still having fun - update a win counter to show the user how many times they have won.
     </p><br>
+                        
+                          <p class="normal">
+    You may find the code below helpfulP:
+    </p><br>
+    <pre>
+private JLabel createLabelImage(String fileName) throws MalformedURLException{
+        URL imageURL = getClass().getResource(fileName);
+	if (imageURL == null){
+		System.err.println("Could not find image " + fileName);
+		return new JLabel();
+	}
+	Icon icon = new ImageIcon(imageURL);
+	JLabel imageLabel = new JLabel(icon);
+	return imageLabel;
+}
+    </pre>
     
                 </div>
     </div>

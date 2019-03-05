@@ -17,29 +17,32 @@
 <br>
 <p class="normal">
 Goal: Make a Swing program from scratch.<br><br>
-The program must have a window with a button that gives one of five random fortunes when clicked.
+The program will have a window (frame) with a button that gives one of five random fortunes when clicked.
 </p><br>
 <br>
 <p class="normal">
-    1. Make a class, with a main method and a <font color="green">showButton()</font> method like the one below: 
-    <br>
+    1. Make a FortuneCookie class, with a <font color="green">showButton()</font> method like the one below: 
+    <br><br>
     <p class="code">
-        public void showButton() {<br>
+        public class FortuneCookie {<br>
+        &nbsp;&nbsp;&nbsp;public void showButton() {<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Button clicked");<br>
+       &nbsp;&nbsp;&nbsp; }<br>
         }<br>
     </p><br>
     <p class="normal">
-    2. Write code in your main method, to call the showButton() method.<br>
-       Note: because showButton() is <b>not static</b> you will have to create an instance of your program in the main method before you can call it.<br><br> E.g.
-    </p><br>
-        
+    2. Now make a runner class to run the code above, like the one below: 
+        <br> <br>       
         <p class="code">
-        FortuneCookie fc = new FortuneCookie();<br>
-        fc.showButton();<br>
+        public class FortuneCookieRunner {<br>
+        &nbsp;&nbsp;&nbsp;public static void main(String[] args) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new FortuneCookie().showButton();<br>
+        &nbsp;&nbsp;&nbsp;}<br>
+        }<br>
         
     </p><br>
     <p class="normal">
-    3. Now change the showButton() method to make a JFrame and get it to show up when you run the program. Hint:</p><br>
+    3. Now change the showButton() method in Step 1, to make a JFrame and get it to show up when you run the program. Hint:</p><br>
     <p class="code">frame.setVisible(true);</p><br>
 
     
@@ -51,7 +54,7 @@ The program must have a window with a button that gives one of five random fortu
     
  <p class="normal">  
     5. The next 4 steps make a pop-up appear that says, “Woohoo” when the button is clicked<br>
-    <br><br>
+    <br>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Add an action listener to the button: </p><br>
    <p class="code">button.addActionListener(this);</p><br>
     <p class="normal">  
